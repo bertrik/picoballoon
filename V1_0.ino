@@ -159,12 +159,12 @@ void loop()
         actualValue = (sensorValue / 1023.00) * divider;
         v1 = actualValue;
         v2 = (actualValue - v1) * 100;
-        snprintf(voltage, 30, "%i.%02i", v1, v2);
+        snprintf(voltage, sizeof(voltage), "%i.%02i", v1, v2);
   
     cBusy = true;
     sprintf(datastring,"$$$$%s,%li,%02i:%02i:%02i,%s,%s,%s,%i,%s",callsign,ticks,hour,minute,second,latbuf,lonbuf,altbuf,sats,voltage); 
     unsigned int CHECKSUM = gps_CRC16_checksum(datastring);  // Calculates the checksum for this datastring
-    char checksum_str[6];
+    char checksum_str[7];
     sprintf(checksum_str, "*%04X\n", CHECKSUM);
     strcat(datastring,checksum_str);
     cBusy = false;
