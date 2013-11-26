@@ -16,7 +16,7 @@
 #define RFM22B_PIN 10
 #define LED 7
 
-char callsign[8] = "pFALCON";   //Callsign
+char callsign[] = "KOMO-1";   //Callsign
 
 char datastring[80];
 char txstring[80];
